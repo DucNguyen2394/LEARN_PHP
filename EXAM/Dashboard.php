@@ -15,21 +15,18 @@
     
     <style>
         
-        .wrapper{
-            
+        .wrapper{      
             width: 600px;
-            margin: 0 auto;
-            
+            margin: 0 auto;       
         }
         table tr td:last-child{
             width: 120px;
-        }
-        
+        }       
     </style>
     <script>
         $(document).ready(function{
-            $('[data-toggle="tooltip"]').tooltip();
-        });
+          $('[data-toggle="tooltip"]').tooltip();
+        })
     </script>
 </head>
 <body>
@@ -60,16 +57,11 @@
 
                      //attempt select quey execution
                 if(isset($_GET["key"]) && !empty($_GET["key"])){
-
-
                         $keyword=$_GET["key"];
-
                     $sql="select * from book where name ='%$keyword%' or title like '%$keyword%' or authorid like '%$keyword%'";
                 }else {
                     $sql = "select * from book";
                 }
-
-
                          if ($result = $mysqli->query($sql)) {
                              if ($result->num_rows > 0) {
                                  echo '<table class="table table-bordered table-striped">';
@@ -78,8 +70,7 @@
                                  echo "<th>BookID</th>";
                                   echo "<th>Name</th>";
                                  echo "<th>AuthorID</th>";
-                                 echo "<th>Title</th>";
-                                
+                                 echo "<th>Title</th>";                           
                                  echo "<th>Pub Year</th>";
                                  echo "<th>Availbale</th>";
                                  echo "</tr>";
@@ -106,7 +97,7 @@
                                  }
                                  echo "</tbody>";
                                  echo "</table>";
-                                 //free réult set
+
                                  $result->free();
 
                              } else {
@@ -117,8 +108,6 @@
                          }
 
                          $mysqli->close();
-
-
                      //Close connection
  ?>
             </div>
